@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema
 
-var nytSchema = new Schema ({
+var washSchema = new Schema ({
     headline: {
         type: String,
         required: true
@@ -22,12 +22,16 @@ var nytSchema = new Schema ({
         type: Boolean,
         default: false
     },
+    source: {
+        type: String,
+        required: true,
+    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: "comments"
     }]
 });
 
-var Nyt = mongoose.model("Nyt", nytSchema);
+var Wash = mongoose.model("Wash", washSchema);
 
-module.exports = Nyt;
+module.exports = Wash;

@@ -1,4 +1,4 @@
 module.exports = {
-    Nyt: require("./NYT"),
+    Wash: require("./Wash"),
     Wsj: require("./WSJ")
 };
