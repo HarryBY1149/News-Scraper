@@ -18,7 +18,9 @@ require("./routes/routes")(app, cheerio, axios);
 
 // recommended code for hooking up mongo
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true}).catch(function(err){
+    console.log(err);
+});
 
 var PORT = process.env.PORT || 8080;
 

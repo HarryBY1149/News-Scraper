@@ -1,4 +1,4 @@
 module.exports = {
-    Wash: require("./Wash"),
-    Wsj: require("./WSJ")
+    Article: require("./Article"),
+    Comment: require("./Comment")
 };

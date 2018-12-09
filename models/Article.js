@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema
 
-var washSchema = new Schema ({
+var articleSchema = new Schema ({
     headline: {
         type: String,
         required: true
@@ -32,6 +32,6 @@ var washSchema = new Schema ({
     }]
 });
 
-var Wash = mongoose.model("Wash", washSchema);
+var Article = mongoose.model("Article", articleSchema);
 
-module.exports = Wash;
+module.exports = Article;
