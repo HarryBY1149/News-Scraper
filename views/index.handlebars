@@ -1,4 +1,18 @@
+<div class="col-md-11 mt-2 mx-auto">
+    <div class="row">
+        <div class="col-md-10 mx-auto header text-center">
+            <h2 class="header-title">The Lean</h2>
+            <h4 class="header-sub"> A small sample print media comparison</h4>
+            <button class="btn btn-primary" id="scrape">Get Latest Headlines</button>
+        </div>
+    </div>
+    <div class="row">
+        {{> articles/wash paper="The Washington Post" articleArr=data.wash}}
+        {{> articles/wsj paper="The Wall Street Journal" articleArr=data.wsj}}
+    </div>
+</div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="./index.js"></script>

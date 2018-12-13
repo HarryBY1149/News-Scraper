@@ -1,0 +1,14 @@
+<div class="article-container col-md-6 text-center float-left">
+    <p class="label">Lean left with The Washington Post</p>
+    {{#articleArr}}
+    <div class="card article"  id={{_id}}>
+        <div class="card-body">
+            <h5 class="card-title">{{headline}}</h5>
+            <h5 class="card-subtitle mb-2 text-muted">Courtesy of {{../paper}}</h5>
+            <p class="card-text">{{summary}}</p>
+            <a href="{{link}}" class="btn btn-secondary" target="-blank">Read the full Article Here!</a>
+            <a href="/comment/{{_id}}/{{../paper}}" class="btn btn-primary comment mx-auto">Comment</a>
+        </div>
+    </div>
+    {{/articleArr}}
+</div>
