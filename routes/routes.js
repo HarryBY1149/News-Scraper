@@ -5,12 +5,11 @@ module.exports = (app, cheerio, axios) => {
     app.get("/scrape", function (req, res) {
         axios.get("https://www.washingtonpost.com/politics/?utm_term=.a90603def3a8").then(function (result) {
             var $ = cheerio.load(result.data);
-            $(".story-list-story").each(function (i, element) {
+            $(".no-skin.flex-item.flex-stack.normal-air.text-align-left.equalize-height-target").each(function (i, element) {
                 var washResult = {};
-                washResult.headline = $(this).children(".story-body").children(".story-headline").children("h3").text();
-                washResult.summary = $(this).children(".story-body").children(".story-description").children("p").text();
-                washResult.link = $(this).children(".story-body").children(".story-headline").children("h3").children("a").attr("href");
-                washResult.photo = $(this).children(".story-image").children("a").children("img").attr("src");
+                washResult.headline = $(this).children(".headline").children("a").text();
+                washResult.summary = $(this).children(".blurb").text();
+                washResult.link = $(this).children(".headline").children("a").attr("href");
                 washResult.source = "Wash"
                 db.Article.findOne({ "headline": washResult.headline }).then(function (result) {
                     if (!result) {
@@ -58,7 +57,7 @@ module.exports = (app, cheerio, axios) => {
     })
 
     app.get("/", function (req, res) {
-        db.Article.find({}).sort({ _id: -1 }).limit(30).then(function (response) {
+        db.Article.find({}).sort({ _id: 1 }).limit(30).then(function (response) {
             const wash = response.filter(article => article.source === "Wash")
             const wsj = response.filter(article => article.source === "WSJ")
             const data = {
